@@ -1,0 +1,65 @@
+<%- include('../partials/header.ejs')%>
+    <main class="new">
+        <h1 class="h1"> <%= event.title %> </h1>
+        <form action="/events/<%=event.id%>?_method=PUT" method = 'POST' enctype="multipart/form-data">
+            <div class="inputBox">
+                <label class="formCat">Category</label>
+                <select name="category" id="category" required>
+                    <option><%= event.category %></option>
+                    <option>Sports</option>
+                    <option>Social</option>
+                    <option>Workshop</option>
+                    <option>Charity/Fundraiser</option>
+                    <option>Festival</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="inputBox">
+                <label class="formTitle">Title</label>
+                <input type="text" value="<%= event.title %>" name="title" id="title" placeholder="title" required>
+            </div>
+            
+            <div class="inputBox">
+                <label class="formDetails">Details</label>
+                <textarea name="details" id="details" placeholder="description" required> <%= event.details %> </textarea>
+            </div>
+
+            <div class="inputBox">
+                <label class="formWhere">Where</label>
+                <input type="text" value="<%= event.location %>" name="location" id="location" placeholder="location" required>
+            </div>
+            
+            <div class="inputBox">
+                <label class="formStart">Start</label>
+                <input type="datetime-local" value="<%= inputStart %>" name="start" id="start" required>
+            </div>
+
+            <div class="inputBox">
+                <label class="formEnd">End</label>
+                <input type="datetime-local" value="<%= inputEnd %>" name="end" id="end" required>
+            </div>
+
+            <script>
+                document.getElementById("end").addEventListener("change", function() {
+                    var start = new Date(document.getElementById("start").value);
+                    var end = new Date(this.value);
+                    if (end <= start) {
+                        alert("End time must be after start time");
+                        this.value = "";
+                    }
+                });
+            </script>
+
+            <div class="inputBox">
+                <label class="formImage">Image</label>
+                <input type="file" name="image" id="image">
+            </div>
+            
+            <div class="btn inputBox">
+                <input type="submit" name="submit" id ="submit" value="Submit">
+            </div>
+        </form>
+        <br>
+    </main>
+<%- include('../partials/footer.ejs')%>

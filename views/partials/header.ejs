@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Emil Kozicki" content="Emil Kozicki">
+    <title>Event</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="icon" type="image/x-icon" href="/public/images/CLT4Events_transparent.png">
+    <script src="https://kit.fontawesome.com/ef760ff5e2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <a href="/" class="logo"><img src="/images/CLT4Events_transparent.png" alt="logo"></a>
+        <div class="header-right">
+            
+            <% if(!user) { %>
+                <a href="/user/new">Sign Up</a>
+                <a href="/user/login">Login</a>
+            <% } else { %>
+                <a href="/events/new">New Event</a>
+                <a href="/user/profile"> <%= user.firstName + "'s "%>Profile</a>
+                <a href="/user/logout">Log Out</a>
+            <% } %>
+    
+        </div>     
+    </div>
+        <a class="events" href="/events">Events</a>
+    </header>
+
+    <%if(errorMessages.length > 0) {
+        errorMessages.forEach(message => { %>
+            <div class="error"><%=message%></div>
+        <%});
+    }%>
+
+    <%if(successMessages.length > 0) {
+        successMessages.forEach(message => { %>
+            <div class="success"><%=message%></div>
+        <%});
+    }%>

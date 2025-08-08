@@ -1,0 +1,98 @@
+<%- include('../partials/header.ejs')%> 
+    <main>
+        <h1 class="h1">Events:</h1>
+        <div class="event-list">
+                <% if(categories.length){ %>
+                    <% categories.forEach(event => { %>
+                    <% if(event === 'Sports') { %>  
+                        <div class="container-content2">  
+                            <h1> <%= event %> </h1>
+                            <ul>
+                                <% events.forEach(event => { %>
+                                    <% if(event.category === 'Sports') { %> 
+                                        <li>
+                                            <a href="/events/<%= event.id %>"><p><%= event.title %></p></a>
+                                        </li>
+                                    <% } %>
+                                <% }); %>
+                            </ul>
+                    <% } %>
+
+                    <% if(event === 'Social') { %>  
+                        <div class="container-content2">  
+                            <h1> <%= event %> </h1>
+                            <ul>
+                                <% events.forEach(event => { %>
+                                    <% if(event.category === 'Social') { %> 
+                                        <li>
+                                            <a href="/events/<%= event.id %>"><p><%= event.title %></p></a>
+                                        </li>
+                                    <% } %>
+                                <% }); %>
+                            </ul>
+                    <% } %>
+
+                    <% if(event === 'Workshop') { %>  
+                        <div class="container-content2">  
+                            <h1> <%= event %> </h1>
+                            <ul>
+                                <% events.forEach(event => { %>
+                                    <% if(event.category === 'Workshop') { %> 
+                                        <li>
+                                            <a href="/events/<%= event.id %>"><p><%= event.title %></p></a>
+                                        </li>
+                                    <% } %>
+                                <% }); %>
+                            </ul>
+                    <% } %>
+
+                    <% if(event === 'Charity/Fundraiser') { %>  
+                        <div class="container-content2">  
+                            <h1> <%= event %> </h1>
+                            <ul>
+                                <% events.forEach(event => { %>
+                                    <% if(event.category === 'Charity/Fundraiser') { %> 
+                                        <li>
+                                            <a href="/events/<%= event.id %>"><p><%= event.title %></p></a>
+                                        </li>
+                                    <% } %>
+                                <% }); %>
+                            </ul>
+                    <% } %>
+
+                    <% if(event === 'Festival') { %>  
+                        <div class="container-content2">  
+                            <h1> <%= event %> </h1>
+                            <ul>
+                                <% events.forEach(event => { %>
+                                    <% if(event.category === 'Festival') { %> 
+                                        <li>
+                                            <a href="/events/<%= event.id %>"><p><%= event.title %></p></a>
+                                        </li>
+                                    <% } %>
+                                <% }); %>
+                            </ul>
+                    <% } %>
+
+                    <% if(event === 'Other') { %>  
+                        <div class="container-content2">  
+                            <h1> <%= event %> </h1>
+                            <ul>
+                                <% events.forEach(event => { %>
+                                    <% if(event.category === 'Other') { %> 
+                                        <li>
+                                            <a href="/events/<%= event.id %>"><p><%= event.title %></p></a>
+                                        </li>
+                                    <% } %>
+                                <% }); %>
+                            </ul>
+                    <% } %>
+                    
+                    <% }); %>
+                    <% } else{ %>
+                        <h2 class="purpleMessage">There are no events to display. Create one!</h2>
+                    <% } %>
+            </div>
+        </div>
+    </main>
+<%- include('../partials/footer.ejs')%>

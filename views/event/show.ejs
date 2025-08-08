@@ -1,0 +1,46 @@
+<%- include('../partials/header.ejs')%>
+    <main>
+
+        <h1 class="h1">Event:</h1>
+        <div class="eventInfo4">
+            <h2 class="title"> <%=event.title%> </h2>
+        </div>
+        <div >
+        <form class="eventInfoRSVP" action="/events/<%=event.id%>/rsvp" method="POST" >
+            <h3 class="titleRSVP">Going?</h3>
+                <button class="yes" type="submit" name="status" id ="YES" value="YES">Yes</button>
+                <button class="no" type="submit" name="status" id ="NO" value="NO">No</button>
+                <button class="maybe" type="submit" name="status" id ="MAYBE" value="MAYBE">Maybe</button>
+        </form>
+        </div> 
+        <div class="eventInfo">
+            <img src=" <%= event.image%>" alt="">
+                    <div class="eventInfo2">
+                        <div class="eventInfo3">
+                            <h3>Host: </h3>
+                            <p> <%= event.host.firstName + ' ' + event.host.lastName%> </p>
+                        </div>
+                        <div class="eventInfo3">
+                            <h3>Start time: </h3>
+                            <p> <%= formattedStart %> </p>
+                        </div>
+                        <div class="eventInfo3">
+                            <h3>End time: </h3>
+                            <p> <%= formattedEnd %> </p>
+                        </div>
+                        <div class="eventInfo3">
+                            <h3>Location: </h3>
+                            <p> <%= event.location %> </p>
+                        </div>
+                        <div class="eventInfo3">
+                            <h3>Details: </h3>
+                            <p> <%= event.details %> </p>
+                        </div>
+                        <div class="eventInfo3">
+                            <h3> Number of RSVPs: </h3>
+                            <p> <%= rsvpCount %> </p>
+                        </div>
+                    </div>
+        </div>
+    </main>
+<%- include('../partials/footer.ejs')%>
